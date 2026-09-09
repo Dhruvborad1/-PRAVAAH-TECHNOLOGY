@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Smartphone, Zap, ShieldCheck, Layers, Code2, Rocket } from 'lucide-react';
+import { Smartphone, Zap, ShieldCheck, Layers, Code2, Rocket, Sparkles } from 'lucide-react';
 import ScrollReveal from '../../components/ScrollReveal';
 import AppDevImg from '../../assets/Services/App Development.png';
-import { Sparkles } from 'lucide-react';
 
 const features = [
   { 
@@ -35,7 +34,7 @@ const features = [
 const AppDevelopment = () => {
   return (
     <section 
-      className="relative py-20 lg:py-28 bg-blue-50/40 border-b border-blue-100/60 selection:bg-blue-100 selection:text-slate-900"
+      className="relative py-16 md:py-20 lg:py-28 bg-blue-50/40 border-b border-blue-100/60 selection:bg-blue-100 selection:text-slate-900 overflow-hidden"
       aria-label="Mobile App Development Services"
     >
       {/* Background Subtle Ambience */}
@@ -45,31 +44,58 @@ const AppDevelopment = () => {
       </div>
 
       <div className="container mx-auto px-5 md:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        {/* ========================================================= */}
+        {/* 1 & 2. MOBILE-ONLY: LABEL + MAIN HEADER TEXT              */}
+        {/* ========================================================= */}
+        <div className="block lg:hidden mb-8">
+          <ScrollReveal variant="lift">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
+              MOBILE SOLUTIONS
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-950 leading-[1.15] tracking-tight">
+              Crafting Next-Gen <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2F54EB] via-[#9B51E0] to-[#00D2FF]">
+                Mobile Experiences.
+              </span>
+            </h2>
+
+            <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-cyan-400" />
+          </ScrollReveal>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* ========================================================= */}
-          {/* LEFT COLUMN: HEADLINE, DESCRIPTION & FEATURES (6 COLS)      */}
+          {/* CONTENT COLUMN: Desktop (Left) | Mobile (Step 4: Bottom)  */}
           {/* ========================================================= */}
-          <div className="lg:col-span-6 order-1 lg:order-1">
+          <div className="lg:col-span-6 order-2 lg:order-1">
             
-            <ScrollReveal variant="lift">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-950 leading-[1.14] tracking-tight">
-                Crafting Next-Gen <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2F54EB] via-[#9B51E0] to-[#00D2FF]">
-                  Mobile Experiences.
-                </span>
-              </h2>
+            {/* Desktop Headline (Hidden on mobile) */}
+            <div className="hidden lg:block">
+              <ScrollReveal variant="lift">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-950 leading-[1.14] tracking-tight">
+                  Crafting Next-Gen <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2F54EB] via-[#9B51E0] to-[#00D2FF]">
+                    Mobile Experiences.
+                  </span>
+                </h2>
 
-              <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-cyan-400" />
-            </ScrollReveal>
+                <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-blue-600 via-purple-500 to-cyan-400" />
+              </ScrollReveal>
+            </div>
 
+            {/* Description Text */}
             <ScrollReveal variant="lift" delay={0.08}>
-              <p className="mt-5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+              <p className="mt-2 lg:mt-5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
                 We build scalable, high-performance mobile applications that users love. From innovative startups to enterprise-grade solutions, our apps are designed for seamless performance across all platforms.
               </p>
             </ScrollReveal>
 
-            <div className="grid sm:grid-cols-2 gap-3.5 sm:gap-4 mt-8">
+            {/* Features Grid */}
+            <div className="grid sm:grid-cols-2 gap-3.5 sm:gap-4 mt-6 lg:mt-8">
               {features.map((feature, index) => (
                 <ScrollReveal 
                   key={index}
@@ -103,16 +129,19 @@ const AppDevelopment = () => {
           </div>
 
           {/* ========================================================= */}
-          {/* RIGHT COLUMN: LABEL + REFINED IMAGE FRAME (6 COLS)         */}
+          {/* IMAGE COLUMN: Desktop (Right) | Mobile (Step 3: Mid)      */}
           {/* ========================================================= */}
-          <div className="lg:col-span-6 relative order-2 lg:order-2">
+          <div className="lg:col-span-6 relative order-1 lg:order-2">
             
-            <ScrollReveal variant="lift">
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-3">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
-                MOBILE SOLUTIONS
-              </div>
-            </ScrollReveal>
+            {/* Desktop Label (Hidden on mobile) */}
+            <div className="hidden lg:block">
+              <ScrollReveal variant="lift">
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-5">
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
+                  MOBILE SOLUTIONS
+                </div>
+              </ScrollReveal>
+            </div>
 
             <ScrollReveal variant="blur" delay={0.1}>
               <div className="relative">
@@ -125,7 +154,7 @@ const AppDevelopment = () => {
                   <div className="relative w-full rounded-[18px] sm:rounded-[22px] overflow-hidden bg-slate-950 border border-slate-100/80">
                     <img 
                       src={AppDevImg} 
-                      alt="Mobile App Development" 
+                      alt="Mobile App Development at Pravaah" 
                       className="w-full h-auto object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                     />
 
@@ -138,6 +167,7 @@ const AppDevelopment = () => {
                     </div>
                   </div>
 
+                  {/* Floating Status Badge */}
                   <motion.div 
                     animate={{ y: [-3, 3, -3] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}

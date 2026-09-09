@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BrainCircuit, Cpu, LineChart, Workflow, Bot, Zap } from 'lucide-react';
+import { BrainCircuit, Cpu, LineChart, Workflow, Bot, Zap, Sparkles } from 'lucide-react';
 import ScrollReveal from '../../components/ScrollReveal';
 import AIImg from '../../assets/Services/Ai Development.png';
-import { Sparkles } from 'lucide-react';
+
 const features = [
   {
     icon: <BrainCircuit className="w-5 h-5 text-[#00D2FF]" />,
@@ -34,7 +34,7 @@ const features = [
 const AIAutomation = () => {
   return (
     <section
-      className="relative py-20 lg:py-28 bg-blue-50/40 border-b border-blue-100/60 selection:bg-blue-100 selection:text-slate-900"
+      className="relative py-16 md:py-20 lg:py-28 bg-blue-50/40 border-b border-blue-100/60 selection:bg-blue-100 selection:text-slate-900 overflow-hidden"
       aria-label="AI and Automation Digital Solutions"
     >
       {/* Background Subtle Ambience */}
@@ -51,32 +51,58 @@ const AIAutomation = () => {
       </div>
 
       <div className="container mx-auto px-5 md:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        {/* ========================================================= */}
+        {/* 1 & 2. MOBILE-ONLY: LABEL + MAIN HEADER TEXT              */}
+        {/* ========================================================= */}
+        <div className="block lg:hidden mb-8">
+          <ScrollReveal variant="lift">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
+              AI & AUTOMATION
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-950 leading-[1.15] tracking-tight">
+              Intelligent Solutions <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">
+                Powered by AI.
+              </span>
+            </h2>
+
+            <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500" />
+          </ScrollReveal>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
           {/* ========================================================= */}
-          {/* LEFT COLUMN: HEADLINE, DESCRIPTION & FEATURES (6 COLS)     */}
+          {/* CONTENT COLUMN: Desktop (Left) | Mobile (Step 4: Bottom)  */}
           {/* ========================================================= */}
-          <div className="lg:col-span-6 order-1 lg:order-1">
+          <div className="lg:col-span-6 order-2 lg:order-1">
 
-            <ScrollReveal variant="lift">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-950 leading-[1.14] tracking-tight">
-                Intelligent Solutions <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">
-                  Powered by AI.
-                </span>
-              </h2>
+            {/* Desktop Headline (Hidden on mobile) */}
+            <div className="hidden lg:block">
+              <ScrollReveal variant="lift">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-950 leading-[1.14] tracking-tight">
+                  Intelligent Solutions <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">
+                    Powered by AI.
+                  </span>
+                </h2>
 
-              <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500" />
-            </ScrollReveal>
+                <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500" />
+              </ScrollReveal>
+            </div>
 
+            {/* Description Text */}
             <ScrollReveal variant="lift" delay={0.08}>
-              <p className="mt-5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+              <p className="mt-2 lg:mt-5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
                 Transform your business operations with autonomous intelligence and continuous workflow automation. We integrate robust learning models tailored to adapt, scale, and unlock immediate efficiency.
               </p>
             </ScrollReveal>
 
             {/* Features Grid */}
-            <div className="grid sm:grid-cols-2 gap-3.5 sm:gap-4 mt-8">
+            <div className="grid sm:grid-cols-2 gap-3.5 sm:gap-4 mt-6 lg:mt-8">
               {features.map((feature, index) => (
                 <ScrollReveal
                   key={index}
@@ -110,29 +136,28 @@ const AIAutomation = () => {
           </div>
 
           {/* ========================================================= */}
-          {/* RIGHT COLUMN: LABEL + IMAGE FRAME (6 COLS, DIRECTION SAME) */}
+          {/* IMAGE COLUMN: Desktop (Right) | Mobile (Step 3: Mid)      */}
           {/* ========================================================= */}
-          <div className="lg:col-span-6 relative order-2 lg:order-2">
+          <div className="lg:col-span-6 relative order-1 lg:order-2">
 
-            {/* લેબલ ઇમેજની બરાબર ઉપર */}
-            <ScrollReveal variant="lift">
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-3">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
-                AI & AUTOMATION
-              </div>
-            </ScrollReveal>
+            {/* Desktop Label (Hidden on mobile) */}
+            <div className="hidden lg:block">
+              <ScrollReveal variant="lift">
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-5">
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
+                  AI & AUTOMATION
+                </div>
+              </ScrollReveal>
+            </div>
 
             <ScrollReveal variant="blur" delay={0.1}>
               <div className="relative">
 
-                {/* હળવો સોફ્ટ અંડરગ્લો */}
                 <div className="absolute -inset-2 bg-gradient-to-r from-[#00D2FF]/15 via-[#2F54EB]/10 to-[#9B51E0]/15 rounded-[30px] blur-xl -z-10 pointer-events-none" />
 
-                {/* સ્લીક ગ્લાસ ફ્રેમ */}
                 <div
-                  className="relative rounded-[24px] sm:rounded-[30px] p-2 sm:p-2.5 border border-slate-200/90 bg-slate-50/60 backdrop-blur-md transition-all duration-500 hover:border-slate-300 shadow-xs group"
+                  className="relative rounded-[24px] sm:rounded-[30px] p-2 sm:p-2.5 border border-slate-200/90 bg-white/60 backdrop-blur-md transition-all duration-500 hover:border-slate-300 shadow-xs group"
                 >
-                  {/* ઇમેજ કન્ટેનર */}
                   <div className="relative w-full rounded-[18px] sm:rounded-[22px] overflow-hidden bg-slate-950 border border-slate-100/80">
                     <img
                       src={AIImg}
@@ -140,10 +165,8 @@ const AIAutomation = () => {
                       className="w-full h-auto object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                     />
 
-                    {/* લાઇટ શીન */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-white/10 pointer-events-none" />
 
-                    {/* સર્વિસ ટેગ */}
                     <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 z-20 pointer-events-none">
                       <span className="text-[10px] font-mono font-bold tracking-widest text-slate-200 bg-slate-950/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/15">
                         SERVICE // 03
@@ -151,7 +174,7 @@ const AIAutomation = () => {
                     </div>
                   </div>
 
-                  {/* ફ્લોટિંગ બેજ */}
+                  {/* Floating Status Badge */}
                   <motion.div
                     animate={{ y: [-3, 3, -3] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}

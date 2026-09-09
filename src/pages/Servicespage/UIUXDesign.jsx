@@ -34,7 +34,7 @@ const features = [
 const UIUXDesign = () => {
   return (
     <section 
-      className="relative py-20 lg:py-28 overflow-hidden bg-white border-b border-slate-200/60 selection:bg-cyan-100 selection:text-slate-900"
+      className="relative py-16 md:py-20 lg:py-28 overflow-hidden bg-white border-b border-slate-200/60 selection:bg-cyan-100 selection:text-slate-900"
       aria-label="UI/UX and Creative Design Services"
     >
       {/* Background Subtle Ambience */}
@@ -51,20 +51,44 @@ const UIUXDesign = () => {
       </div>
 
       <div className="container mx-auto px-5 md:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        {/* ========================================================= */}
+        {/* 1 & 2. MOBILE-ONLY: LABEL + MAIN HEADER TEXT              */}
+        {/* ========================================================= */}
+        <div className="block lg:hidden mb-8">
+          <ScrollReveal variant="lift">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
+              CREATIVE DESIGN
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-950 leading-[1.15] tracking-tight">
+              Design that <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">
+                Inspires Action.
+              </span>
+            </h2>
+
+            <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500" />
+          </ScrollReveal>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* ========================================================= */}
-          {/* LEFT COLUMN: LABEL + REFINED IMAGE FRAME (6 COLS)          */}
+          {/* 3. IMAGE COLUMN (Mobile: Step 3 | Desktop: Left Column)   */}
           {/* ========================================================= */}
-          <div className="lg:col-span-6 relative order-2 lg:order-1">
+          <div className="lg:col-span-6 relative">
             
-            {/* લેબલ ઇમેજની બરાબર ઉપર */}
-            <ScrollReveal variant="lift">
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-3">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
-                CREATIVE DESIGN
-              </div>
-            </ScrollReveal>
+            {/* Desktop Label (Hidden on mobile) */}
+            <div className="hidden lg:block">
+              <ScrollReveal variant="lift">
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-5">
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
+                  CREATIVE DESIGN
+                </div>
+              </ScrollReveal>
+            </div>
 
             <ScrollReveal variant="blur" delay={0.1}>
               <div className="relative">
@@ -124,31 +148,33 @@ const UIUXDesign = () => {
           </div>
 
           {/* ========================================================= */}
-          {/* RIGHT COLUMN: HEADLINE, DESCRIPTION & FEATURES (6 COLS)     */}
+          {/* 4. DETAILS & FEATURES (Mobile: Step 4 | Desktop: Right)   */}
           {/* ========================================================= */}
-          <div className="lg:col-span-6 order-1 lg:order-2">
+          <div className="lg:col-span-6">
             
-            {/* હેડલાઇન */}
-            <ScrollReveal variant="lift">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-950 leading-[1.14] tracking-tight">
-                Design that <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">
-                  Inspires Action.
-                </span>
-              </h2>
+            {/* Desktop Headline (Hidden on mobile) */}
+            <div className="hidden lg:block">
+              <ScrollReveal variant="lift">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-950 leading-[1.14] tracking-tight">
+                  Design that <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">
+                    Inspires Action.
+                  </span>
+                </h2>
 
-              <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500" />
-            </ScrollReveal>
+                <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500" />
+              </ScrollReveal>
+            </div>
 
             {/* ડિસ્ક્રિપ્શન */}
             <ScrollReveal variant="lift" delay={0.08}>
-              <p className="mt-5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+              <p className="mt-2 lg:mt-5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
                 We blend cognitive psychology, human interaction patterns, and clean engineering to create interfaces that don't just look compelling, but drive frictionless engagement and measurable conversion.
               </p>
             </ScrollReveal>
 
             {/* ફીચર્સ ગ્રીડ */}
-            <div className="grid sm:grid-cols-2 gap-3.5 sm:gap-4 mt-8">
+            <div className="grid sm:grid-cols-2 gap-3.5 sm:gap-4 mt-6 lg:mt-8">
               {features.map((feature, index) => (
                 <ScrollReveal 
                   key={index}

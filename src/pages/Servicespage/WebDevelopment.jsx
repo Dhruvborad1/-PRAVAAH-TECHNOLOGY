@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Monitor, Code2, Rocket, Globe } from 'lucide-react';
+import { Monitor, Code2, Rocket, Globe, Sparkles } from 'lucide-react';
 import ScrollReveal from '../../components/ScrollReveal';
 import WebDevImg from '../../assets/Services/Web Development.png';
-import { Sparkles } from 'lucide-react';
 
 const features = [
   {
@@ -35,7 +34,7 @@ const features = [
 const WebDevelopment = () => {
   return (
     <section
-      className="relative py-20 lg:py-28 overflow-hidden bg-white border-b border-slate-200/60 selection:bg-cyan-100 selection:text-slate-900"
+      className="relative py-16 md:py-20 lg:py-28 overflow-hidden bg-white border-b border-slate-200/60 selection:bg-cyan-100 selection:text-slate-900"
       aria-label="Web Development Services"
     >
       {/* Background Subtle Ambience */}
@@ -52,29 +51,50 @@ const WebDevelopment = () => {
       </div>
 
       <div className="container mx-auto px-5 md:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        {/* ========================================================= */}
+        {/* 1 & 2. MOBILE-ONLY: LABEL + MAIN HEADER TEXT              */}
+        {/* ========================================================= */}
+        <div className="block lg:hidden mb-8">
+          <ScrollReveal variant="lift">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
+              OUR CORE CAPABILITIES
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-950 leading-[1.15] tracking-tight">
+              Build Next-Generation <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">
+                Digital Experiences.
+              </span>
+            </h2>
+
+            <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500" />
+          </ScrollReveal>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
           {/* ========================================================= */}
-          {/* LEFT COLUMN: LABEL + REFINED IMAGE FRAME (6 COLS)          */}
+          {/* 3. IMAGE COLUMN (Mobile: Step 3 | Desktop: Left Column)   */}
           {/* ========================================================= */}
-          <div className="lg:col-span-6 relative order-2 lg:order-1">
-
-
-            <ScrollReveal variant="lift">
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-3">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
-                OUR CORE CAPABILITIES
-              </div>
-            </ScrollReveal>
+          <div className="lg:col-span-6 relative">
+            
+            {/* Desktop Label (Hidden on mobile) */}
+            <div className="hidden lg:block">
+              <ScrollReveal variant="lift">
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-5">
+                  <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
+                  OUR CORE CAPABILITIES
+                </div>
+              </ScrollReveal>
+            </div>
 
             <ScrollReveal variant="blur" delay={0.1}>
               <div className="relative">
-
                 <div className="absolute -inset-2 bg-gradient-to-r from-[#00D2FF]/15 via-[#2F54EB]/10 to-[#9B51E0]/15 rounded-[30px] blur-xl -z-10 pointer-events-none" />
 
-                <div
-                  className="relative rounded-[24px] sm:rounded-[30px] p-2 sm:p-2.5 border border-slate-200/90 bg-slate-50/60 backdrop-blur-md transition-all duration-500 hover:border-slate-300 shadow-xs group"
-                >
+                <div className="relative rounded-[24px] sm:rounded-[30px] p-2 sm:p-2.5 border border-slate-200/90 bg-slate-50/60 backdrop-blur-md transition-all duration-500 hover:border-slate-300 shadow-xs group">
                   <div className="relative w-full rounded-[18px] sm:rounded-[22px] overflow-hidden bg-slate-950 border border-slate-100/80">
                     <img
                       src={WebDevImg}
@@ -91,6 +111,7 @@ const WebDevelopment = () => {
                     </div>
                   </div>
 
+                  {/* Floating Status Badge */}
                   <motion.div
                     animate={{ y: [-3, 3, -3] }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -113,37 +134,38 @@ const WebDevelopment = () => {
                     </div>
                   </motion.div>
                 </div>
-
               </div>
             </ScrollReveal>
           </div>
 
           {/* ========================================================= */}
-          {/* RIGHT COLUMN: HEADLINE, DESCRIPTION & FEATURES (6 COLS)     */}
+          {/* 4. DETAILS & FEATURES (Mobile: Step 4 | Desktop: Right)   */}
           {/* ========================================================= */}
-          <div className="lg:col-span-6 order-1 lg:order-2">
+          <div className="lg:col-span-6">
+            
+            {/* Desktop Headline (Hidden on mobile) */}
+            <div className="hidden lg:block">
+              <ScrollReveal variant="lift">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-950 leading-[1.14] tracking-tight">
+                  Build Next-Generation <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">
+                    Digital Experiences.
+                  </span>
+                </h2>
 
-            {/* હેડલાઇન */}
-            <ScrollReveal variant="lift">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-950 leading-[1.14] tracking-tight">
-                Build Next-Generation <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">
-                  Digital Experiences.
-                </span>
-              </h2>
+                <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500" />
+              </ScrollReveal>
+            </div>
 
-              <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500" />
-            </ScrollReveal>
-
-            {/* ડિસ્ક્રિપ્શન */}
+            {/* Description Text */}
             <ScrollReveal variant="lift" delay={0.08}>
-              <p className="mt-5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+              <p className="mt-2 lg:mt-5 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
                 We engineer scalable, high-performance web applications using modern cloud architectures. From distributed enterprise platforms to dynamic single-page applications, we transform abstract requirements into zero-latency digital systems.
               </p>
             </ScrollReveal>
 
-            {/* ફીચર્સ ગ્રીડ */}
-            <div className="grid sm:grid-cols-2 gap-3.5 sm:gap-4 mt-8">
+            {/* Features Grid */}
+            <div className="grid sm:grid-cols-2 gap-3.5 sm:gap-4 mt-6 lg:mt-8">
               {features.map((feature, index) => (
                 <ScrollReveal
                   key={index}
