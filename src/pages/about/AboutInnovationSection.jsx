@@ -123,6 +123,7 @@ const AboutInnovationSection = () => {
             </span>
           </h2>
         </ScrollReveal>
+        
 
         {/* Quote Block with Big Dual Decorative Quotes */}
         <div ref={quoteRef} className="relative inline-block max-w-3xl mx-auto px-8 sm:px-12 py-2">

@@ -70,7 +70,7 @@ const AnimatedCounter = ({ value, suffix = '' }) => {
   return (
     <span
       ref={ref}
-      className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0] leading-none select-none inline-block"
+      className="text-3xl sm:text-4xl lg:text-5xl font-display font-semibold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0] leading-none select-none inline-block"
     >
       0{suffix}
     </span>

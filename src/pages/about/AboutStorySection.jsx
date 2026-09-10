@@ -10,30 +10,30 @@ const AboutStorySection = () => {
 
           {/* Left: Image Column */}
           <ScrollReveal variant="slide" className="relative isolate">
-  {/* તમારી મૂળ ક્રોસ બેકગ્રાઉન્ડ ફ્રેમ (ગાયબ થવાનો બગ ફિક્સ કર્યો) */}
-  <div 
-    aria-hidden="true" 
-    className="absolute -inset-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-3xl -rotate-3 z-0 pointer-events-none transform-gpu"
-  />
-  
-  {/* તમારી મૂળ મેઇન ઇમેજ ફ્રેમ */}
-  <div className="relative z-10 rounded-2xl shadow-2xl border border-slate-100 bg-slate-50">
-    <div className="relative overflow-hidden rounded-2xl aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
-      <img 
-        src={AboutStoryImg} 
-        alt="Pravaah Workspace" 
-        loading="eager"
-        className="w-full h-full object-cover" 
-      />
-    </div>
+            {/* તમારી મૂળ ક્રોસ બેકગ્રાઉન્ડ ફ્રેમ (ગાયબ થવાનો બગ ફિક્સ કર્યો) */}
+            <div
+              aria-hidden="true"
+              className="absolute -inset-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-3xl -rotate-3 z-0 pointer-events-none transform-gpu"
+            />
 
-    {/* ફ્લોટિંગ એલિમેન્ટ (ફ્રેમની બહાર) */}
-    <div className="absolute bottom-6 -right-6 lg:bottom-12 lg:-right-8 bg-white/95 backdrop-blur-md border border-slate-100 shadow-xl rounded-xl p-4 sm:p-5 pr-8 animate-[float3D_6s_ease-in-out_infinite] z-20">
-      <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Building with purpose</p>
-      <p className="text-sm sm:text-base font-semibold text-slate-900">Technology • Design • Innovation</p>
-    </div>
-  </div>
-</ScrollReveal>
+            {/* તમારી મૂળ મેઇન ઇમેજ ફ્રેમ */}
+            <div className="relative z-10 rounded-2xl shadow-2xl border border-slate-100 bg-slate-50">
+              <div className="relative overflow-hidden rounded-2xl aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
+                <img
+                  src={AboutStoryImg}
+                  alt="Pravaah Workspace"
+                  loading="eager"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              {/* ફ્લોટિંગ એલિમેન્ટ (ફ્રેમની બહાર) */}
+              <div className="absolute bottom-6 -right-6 lg:bottom-12 lg:-right-8 bg-white/95 backdrop-blur-md border border-slate-100 shadow-xl rounded-xl p-4 sm:p-5 pr-8 animate-[float3D_6s_ease-in-out_infinite] z-20">
+                <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Building with purpose</p>
+                <p className="text-sm sm:text-base font-semibold text-slate-900">Technology • Design • Innovation</p>
+              </div>
+            </div>
+          </ScrollReveal>
 
           {/* Right: Content Column */}
           <div className="max-w-xl">
@@ -54,6 +54,7 @@ const AboutStorySection = () => {
                 Building Digital Experiences That Move Businesses <span className="pravaah-gradient-text">Forward.</span>
               </h2>
             </ScrollReveal>
+
 
             <ScrollReveal variant="lift" delay={0.3}>
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
