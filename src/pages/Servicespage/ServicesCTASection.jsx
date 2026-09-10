@@ -40,7 +40,7 @@ const ServicesCTASection = () => {
       <div className="container mx-auto px-5 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
 
-          <ScrollReveal variant="lift"> 
+          <ScrollReveal variant="lift">
             <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200/70 bg-blue-50/60 px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-blue-700 shadow-sm mb-3">
               <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
               READY TO START?
@@ -62,11 +62,13 @@ const ServicesCTASection = () => {
           <ScrollReveal variant="lift" delay={0.3}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
 
-              <Link to="/contact" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white rounded-full font-semibold overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(37,99,235,0.3)] w-full sm:w-auto">
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              <Link
+                to="/contact"
+                className="group relative inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:py-4 bg-[#0B132B] text-white rounded-full font-semibold overflow-hidden transition-all duration-300 shadow-[0_8px_25px_-4px_rgba(11,19,43,0.35)] hover:shadow-[0_12px_30px_-2px_rgba(99,102,241,0.35)] hover:scale-105 border border-white/10 hover:border-indigo-500/50 cursor-pointer w-full sm:w-auto"
+              >
                 <span className="relative z-10 flex items-center gap-2">
                   Start Your Project
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
               </Link>
 

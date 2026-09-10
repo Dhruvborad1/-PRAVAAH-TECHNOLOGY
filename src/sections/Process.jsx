@@ -102,6 +102,7 @@ const Process = () => {
             From Raw Idea to <span className="bg-gradient-to-r from-[#2563EB] to-[#7C3AED] bg-clip-text text-transparent">Market Leader</span>
           </h2>
           
+          
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             A continuous, collaborative development journey engineered for speed, quality, and precision.
           </p>

@@ -140,6 +140,7 @@ const About = () => {
           <p className="mt-4 text-sm md:text-base text-[#64748B] max-w-xl mx-auto leading-relaxed">
             We combine technology, creativity and innovation to build digital experiences that make a real difference.
           </p>
+          
         </motion.div>
 
         {/* Middle Graphic & Executive Narrative Section */}
