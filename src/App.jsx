@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import LoadingScreen from './components/loading/LoadingScreen';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollAnimations from './components/ScrollAnimations';
@@ -16,14 +18,23 @@ import ContactPage from './pages/Contact';
 
 function App() {
   const location = useLocation();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     window.history.scrollRestoration = 'manual';
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    if (!isLoading) {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname, isLoading]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <LoadingScreen key="loading-screen" onComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
+
       <CustomCursor />
       <Navbar />
       <ScrollAnimations />
