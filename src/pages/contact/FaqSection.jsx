@@ -83,13 +83,14 @@ const FaqSection = () => {
               Got Questions? <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">Here Are Direct Answers.</span>
             </h2>
 
+            {/* Centered Decorative Line */}
+            <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500 mx-auto" />
+
             {/* Centered Description Subtext */}
             <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
               Everything you need to know about our sprint execution, SLA commitments, technical feasibility audits, and engagement contracts.
             </p>
 
-            {/* Centered Decorative Line */}
-            <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500 mx-auto" />
           </ScrollReveal>
         </div>
 

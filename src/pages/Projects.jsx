@@ -2,17 +2,16 @@ import React from 'react';
 import { 
   Check, 
   Sparkles, 
-  Layers, 
   Target, 
   Award, 
-  TrendingUp, 
-  ArrowRight, 
-  Star, 
-  Users 
+  TrendingUp
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 import ProjectHeroImg from '../assets/Projections-amico.png';
+import ProjectStatsBanner from './project/ProjectStatsBanner';
+import ProjectShowcaseGrid from './project/ProjectShowcaseGrid';
+import ProjectClientTestimonials from './project/ProjectClientTestimonials';
+import ProjectCTASection from './project/ProjectCTASection';
 
 const ProjectsPage = () => {
   return (
@@ -100,182 +99,10 @@ const ProjectsPage = () => {
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 2. STATS BANNER                                                           */}
-      {/* ========================================================================= */}
-      <section className="py-16 bg-slate-50/70 border-y border-slate-100">
-        <div className="container mx-auto px-5 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl md:text-4xl font-display font-bold text-blue-600">50+</div>
-              <div className="text-sm font-semibold text-slate-500 mt-1">Projects Completed</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-display font-bold text-blue-600">30+</div>
-              <div className="text-sm font-semibold text-slate-500 mt-1">Clients Served</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-display font-bold text-blue-600">10+</div>
-              <div className="text-sm font-semibold text-slate-500 mt-1">Industries Served</div>
-            </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-display font-bold text-blue-600">100%</div>
-              <div className="text-sm font-semibold text-slate-500 mt-1">Delivered On Time</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 3. PROJECT SHOWCASE GRID                                                  */}
-      {/* ========================================================================= */}
-      <section className="section-padding py-24">
-        <div className="container mx-auto px-5 md:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="text-blue-600 font-bold text-xs uppercase tracking-[0.16em]">Browse Projects</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mt-2">Our Recent Work</h2>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
-            <button className="px-5 py-2.5 rounded-xl text-sm font-bold transition-all bg-blue-600 text-white shadow-sm">All</button>
-            <button className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600">Web Development</button>
-            <button className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600">Mobile Apps</button>
-            <button className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600">Cloud Solutions</button>
-            <button className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600">UI/UX Design</button>
-            <button className="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all bg-white border border-slate-200 text-slate-600 hover:border-blue-300 hover:text-blue-600">Digital Marketing</button>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden group hover:shadow-xl transition-all duration-500 hover:-translate-y-1 h-full flex flex-col">
-              <div className="h-56 overflow-hidden relative bg-slate-100 flex items-center justify-center">
-                <span className="text-slate-400 font-medium">Powerex Image Placeholder</span>
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <span className="text-xs text-blue-600 font-bold uppercase tracking-wider">Web Development</span>
-                <h3 className="font-display text-lg font-bold text-slate-900 mt-1">B2B E-Commerce Platform</h3>
-                <p className="text-xs text-slate-500 mt-1 font-medium">Client: Powerex Petrochem</p>
-                <p className="text-sm text-slate-600 mt-3 leading-relaxed flex-grow">
-                  Custom online ordering platform for petrochemical products with secure payments, role-based access, and an admin panel to track quotes and orders in real time.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mt-4">
-                  {['React', 'Next.js', 'Node.js', 'PostgreSQL'].map((tech) => (
-                    <span key={tech} className="px-2.5 py-1 bg-slate-50 border border-slate-200/60 text-slate-700 text-xs rounded-lg font-semibold">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-2xl border border-slate-200/80 overflow-hidden group hover:shadow-xl transition-all duration-500 hover:-translate-y-1 h-full flex flex-col">
-              <div className="h-56 overflow-hidden relative bg-slate-100 flex items-center justify-center">
-                <span className="text-slate-400 font-medium">ShippingDrop Image Placeholder</span>
-              </div>
-              <div className="p-6 flex flex-col flex-grow">
-                <span className="text-xs text-blue-600 font-bold uppercase tracking-wider">Web Development</span>
-                <h3 className="font-display text-lg font-bold text-slate-900 mt-1">Logistics E-Commerce Website</h3>
-                <p className="text-xs text-slate-500 mt-1 font-medium">Client: ShippingDrop</p>
-                <p className="text-sm text-slate-600 mt-3 leading-relaxed flex-grow">
-                  Customer-facing website for booking shipping services, managing orders, and tracking deliveries with automated email updates.
-                </p>
-                <div className="flex flex-wrap gap-1.5 mt-4">
-                  {['React', 'Next.js', 'Node.js', 'PostgreSQL'].map((tech) => (
-                    <span key={tech} className="px-2.5 py-1 bg-slate-50 border border-slate-200/60 text-slate-700 text-xs rounded-lg font-semibold">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 4. TRUSTED CLIENTS                                                        */}
-      {/* ========================================================================= */}
-      <section className="section-padding bg-slate-50/70 py-20 border-y border-slate-100">
-        <div className="container mx-auto px-5 md:px-8">
-          <div className="text-center mb-12">
-            <span className="text-blue-600 font-bold text-xs uppercase tracking-[0.16em]">Trusted By</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mt-2">Our Valued Clients</h2>
-          </div>
-          <div className="flex flex-wrap justify-center gap-6">
-            <div className="px-8 py-4 bg-white border border-slate-200 rounded-xl shadow-sm">
-              <span className="font-display font-bold text-slate-700">Powerex Petrochem</span>
-            </div>
-            <div className="px-8 py-4 bg-white border border-slate-200 rounded-xl shadow-sm">
-              <span className="font-display font-bold text-slate-700">ShippingDrop</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 5. CLIENT TESTIMONIALS                                                    */}
-      {/* ========================================================================= */}
-      <section className="section-padding py-24">
-        <div className="container mx-auto px-5 md:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-blue-600 font-bold text-xs uppercase tracking-[0.16em]">Client Feedback</span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-slate-900 mt-2">What Clients Say About Our Work</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-8 h-full flex flex-col shadow-sm">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />)}
-              </div>
-              <p className="text-slate-600 text-sm leading-relaxed italic flex-grow">
-                "Pravaah Technology helped us move our B2B sales online with a fast, easy-to-use platform. The team was responsive and handled everything from design to deployment."
-              </p>
-              <div className="mt-6 flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center">
-                  <Users className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="font-display font-bold text-slate-900 text-sm">Pushpak Goti</p>
-                  <p className="text-slate-500 text-xs">CEO, Powerex Petrochem</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-8 h-full flex flex-col shadow-sm">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />)}
-              </div>
-              <p className="text-slate-600 text-sm leading-relaxed italic flex-grow">
-                "From the first call to launch, Pravaah Technology handled our website professionally. The new site is simple for our team to manage and easy for our customers to use."
-              </p>
-              <div className="mt-6 flex items-center gap-3">
-                <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center">
-                  <Users className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="font-display font-bold text-slate-900 text-sm">Gausiya Fatima</p>
-                  <p className="text-slate-500 text-xs">Founder, ShippingDrop</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 6. CALL TO ACTION                                                         */}
-      {/* ========================================================================= */}
-      <section className="section-padding pb-24">
-        <div className="container mx-auto px-5 md:px-8">
-          <div className="pravaah-btn-primary rounded-3xl p-12 md:p-16 text-center text-white shadow-xl shadow-blue-500/10">
-            <h2 className="font-display text-3xl md:text-4xl font-bold">Have a Project in Mind?</h2>
-            <p className="text-blue-100 mt-4 max-w-xl mx-auto leading-relaxed">
-              Let's turn your idea into a successful digital product. Get a free project consultation and estimate today.
-            </p>
-            <Link className="inline-flex items-center gap-2 mt-8 px-8 py-4 bg-white text-blue-600 rounded-xl font-bold hover:bg-slate-50 transition-colors shadow-lg" to="/contact">
-              Start Your Project <ArrowRight className="w-[18px] h-[18px]" />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ProjectStatsBanner />
+      <ProjectShowcaseGrid />
+      <ProjectClientTestimonials />
+      <ProjectCTASection />
     </>
   );
 };

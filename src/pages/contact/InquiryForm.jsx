@@ -141,6 +141,9 @@ const InquiryForm = () => {
                 </span>
               </h2>
 
+              {/* Centered Decorative Line */}
+              <div className="mt-4 h-1 w-14 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500" />  
+
               <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
                 Every technical engagement begins with direct partner-level strategy. We discard bloated discovery cycles and validate feasibility immediately.
               </p>
