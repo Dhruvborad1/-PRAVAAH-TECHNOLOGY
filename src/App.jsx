@@ -18,7 +18,16 @@ import ContactPage from './pages/Contact';
 
 function App() {
   const location = useLocation();
-  const [isLoading, setIsLoading] = useState(true);
+  
+  // Checks sessionStorage directly on initial load: only true if not seen yet
+  const [isLoading, setIsLoading] = useState(() => {
+    return !sessionStorage.getItem('pravaah_welcome_shown');
+  });
+
+  const handleLoadingComplete = () => {
+    sessionStorage.setItem('pravaah_welcome_shown', 'true');
+    setIsLoading(false);
+  };
 
   useEffect(() => {
     window.history.scrollRestoration = 'manual';
@@ -31,7 +40,10 @@ function App() {
     <div className="flex flex-col min-h-screen bg-background">
       <AnimatePresence mode="wait">
         {isLoading && (
-          <LoadingScreen key="loading-screen" onComplete={() => setIsLoading(false)} />
+          <LoadingScreen 
+            key="loading-screen" 
+            onComplete={handleLoadingComplete} 
+          />
         )}
       </AnimatePresence>
 

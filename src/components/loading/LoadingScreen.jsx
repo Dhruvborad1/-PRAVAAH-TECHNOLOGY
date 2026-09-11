@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { X } from 'lucide-react';
 import logoIcon from '../../assets/logo/Logo PNG Icon.png';
 
 // Dynamic Flowing Fluid Wave Stream (Pravaah Light Waveform)
@@ -28,7 +29,7 @@ const PravaahLoaderStream = () => {
       const width = canvas.width;
       const height = canvas.height;
 
-      // 3 high-clarity waves calibrated for crisp white/light aesthetic
+      // 3 signature Pravaah waves calibrated for light theme
       const waveLayers = [
         { color: 'rgba(0, 210, 255, 0.16)', amplitude: 46, speed: 0.0055, offset: 0, baseline: height * 0.52 },
         { color: 'rgba(47, 84, 235, 0.13)', amplitude: 60, speed: 0.0045, offset: 2.2, baseline: height * 0.57 },
@@ -73,33 +74,57 @@ const PravaahLoaderStream = () => {
 };
 
 const LoadingScreen = ({ onComplete }) => {
-  const [progress, setProgress] = useState(0);
+  const line1Full = "Welcome to";
+  const line2Full = "Pravaah Technologies";
 
-  // Exact 3.5-second runtime (3500ms) with smooth step interpolation
+  const [line1Text, setLine1Text] = useState("");
+  const [line2Text, setLine2Text] = useState("");
+  const [activeLine, setActiveLine] = useState(1);
+
+  // Two-step sequential typewriter animation
   useEffect(() => {
-    const duration = 3500;
-    const intervalTime = 25;
-    const steps = duration / intervalTime;
-    let currentStep = 0;
+    const startDelay = setTimeout(() => {
+      let index1 = 0;
+      const interval1 = setInterval(() => {
+        index1++;
+        setLine1Text(line1Full.slice(0, index1));
+        if (index1 >= line1Full.length) {
+          clearInterval(interval1);
+          setActiveLine(2);
 
-    const timer = setInterval(() => {
-      currentStep++;
-      const newProgress = Math.min((currentStep / steps) * 100, 100);
-      setProgress(newProgress);
+          // Start typing line 2 after a brief pause
+          setTimeout(() => {
+            let index2 = 0;
+            const interval2 = setInterval(() => {
+              index2++;
+              setLine2Text(line2Full.slice(0, index2));
+              if (index2 >= line2Full.length) {
+                clearInterval(interval2);
+                setActiveLine(0); // typing complete
+              }
+            }, 60);
+          }, 180);
+        }
+      }, 70);
+    }, 350);
 
-      if (currentStep >= steps) {
-        clearInterval(timer);
-        setTimeout(onComplete, 350);
-      }
-    }, intervalTime);
+    return () => clearTimeout(startDelay);
+  }, []);
 
-    return () => clearInterval(timer);
+  // Auto-close after full animation completes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (onComplete) onComplete();
+    }, 3600);
+
+    return () => clearTimeout(timer);
   }, [onComplete]);
 
   return (
     <motion.div
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#F8FAFC] overflow-hidden select-none"
-      initial={{ opacity: 1 }}
+      className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#F8FAFC] overflow-hidden select-none"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       exit={{ 
         opacity: 0,
         scale: 1.03,
@@ -107,15 +132,26 @@ const LoadingScreen = ({ onComplete }) => {
         transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
       }}
     >
-      {/* 1. Real-time Fluid Waveform Stream in Background */}
+      {/* Quick Skip Button */}
+      <button
+        onClick={onComplete}
+        type="button"
+        aria-label="Skip Welcome"
+        className="absolute top-6 right-6 z-20 flex items-center gap-1.5 px-4 py-2 rounded-full border border-slate-200/90 bg-white/80 backdrop-blur-md text-xs font-mono font-medium text-slate-500 hover:text-slate-900 hover:bg-white shadow-xs transition-all cursor-pointer"
+      >
+        <span>Skip</span>
+        <X className="w-3.5 h-3.5" />
+      </button>
+
+      {/* 1. Fluid Waveform Stream in Background */}
       <PravaahLoaderStream />
 
-      {/* 2. Soft Light Atmospheric Accent Blooms */}
+      {/* 2. Soft Atmospheric Light Blooms */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[580px] h-[580px] bg-cyan-200/40 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-1/3 left-1/3 w-[450px] h-[450px] bg-blue-200/35 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[420px] h-[420px] bg-purple-200/30 rounded-full blur-[140px] pointer-events-none" />
 
-      {/* 3. Blueprint Matrix Grid (Light Slate) */}
+      {/* 3. Subtle Matrix Grid */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-[0.035]"
         style={{
@@ -124,60 +160,50 @@ const LoadingScreen = ({ onComplete }) => {
         }}
       />
 
-      {/* 4. Center Console: Single Icon & Prismatic Light Rings */}
-      <div className="relative z-10 flex flex-col items-center">
+      {/* 4. Center Console */}
+      <div className="relative z-10 flex flex-col items-center max-w-xl px-6 text-center">
         
-        {/* Floating Icon with Rotating Kinetic Rings */}
-        <div className="relative mb-12 flex items-center justify-center">
+        {/* Floating Icon with Kinetic Waves */}
+        <div className="relative mb-6 flex items-center justify-center">
           
-          {/* Outer Wave Pulse Orbit Ring */}
+          {/* Outer Pulse Orbit Ring */}
           <motion.div
-            animate={{ 
-              rotate: 360,
-              scale: [1, 1.05, 1]
-            }}
+            animate={{ rotate: 360, scale: [1, 1.05, 1] }}
             transition={{ 
               rotate: { duration: 18, repeat: Infinity, ease: "linear" },
               scale: { duration: 3.5, repeat: Infinity, ease: "easeInOut" }
             }}
-            className="absolute w-44 h-44 sm:w-48 sm:h-48 rounded-full border border-dashed border-blue-400/40 pointer-events-none"
+            className="absolute w-36 h-36 sm:w-40 sm:h-40 rounded-full border border-dashed border-blue-400/40 pointer-events-none"
           />
 
-          {/* Inner Glowing Gradient Ring */}
+          {/* Inner Glowing Ring */}
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-            className="absolute w-36 h-36 sm:w-40 sm:h-40 rounded-full border border-cyan-500/50 border-t-transparent border-b-transparent shadow-[0_0_20px_rgba(0,210,255,0.25)] pointer-events-none"
+            className="absolute w-28 h-28 sm:w-32 sm:h-32 rounded-full border border-cyan-500/50 border-t-transparent border-b-transparent shadow-[0_0_20px_rgba(0,210,255,0.25)] pointer-events-none"
           />
 
-          {/* Central Radial Light Aura for Crisp Icon Contrast */}
+          {/* Center Light Halo */}
           <motion.div 
-            className="absolute inset-0 bg-white/70 rounded-full blur-2xl shadow-xl shadow-blue-500/10"
-            animate={{ 
-              scale: [0.95, 1.2, 0.95],
-              opacity: [0.7, 1, 0.7]
-            }}
-            transition={{ 
-              duration: 2.5, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
+            className="absolute inset-0 bg-white/80 rounded-full blur-2xl shadow-xl shadow-blue-500/15"
+            animate={{ scale: [0.95, 1.2, 0.95], opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           />
 
-          {/* Single Name-less Logo Icon */}
+          {/* The Nameless Icon */}
           <motion.div
-            initial={{ scale: 0.85, opacity: 0 }}
+            initial={{ scale: 0.8, opacity: 0 }}
             animate={{ 
               scale: 1, 
-              opacity: 1,
-              y: [-4, 4, -4]
+              opacity: 1, 
+              y: [-3, 3, -3] 
             }}
             transition={{ 
               scale: { duration: 0.8, ease: "easeOut" },
               opacity: { duration: 0.8 },
               y: { duration: 3, repeat: Infinity, ease: "easeInOut" }
             }}
-            className="relative z-10 w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center drop-shadow-[0_12px_24px_rgba(47,84,235,0.22)]"
+            className="relative z-10 w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center drop-shadow-[0_12px_24px_rgba(47,84,235,0.25)]"
           >
             <img 
               src={logoIcon} 
@@ -187,44 +213,42 @@ const LoadingScreen = ({ onComplete }) => {
           </motion.div>
         </div>
 
-        {/* 5. Fluid Progress Bar Console (Light Mode) */}
-        {/* 5. Fluid Progress Bar Console (Light Mode - Thicker Bar) */}
-<motion.div 
-  className="w-72 sm:w-80 flex flex-col items-center"
-  initial={{ opacity: 0, y: 15 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 0.2 }}
->
-  {/* Progress Bar Frame (Increased thickness to h-3.5) */}
-  <div className="w-full h-3.5 bg-white/95 rounded-full overflow-hidden relative border border-slate-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06),0_6px_20px_rgba(37,99,235,0.08)] p-0.5">
-    {/* Gradient Fill Wave */}
-    <motion.div 
-      className="h-full bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0] rounded-full shadow-[0_0_14px_rgba(47,84,235,0.45)]"
-      style={{ width: `${progress}%` }}
-    />
-    {/* Shimmer Light Ray */}
-    <motion.div 
-      className="absolute top-0 left-0 h-full w-1/3 bg-gradient-to-r from-transparent via-white/80 to-transparent skew-x-[-25deg]"
-      animate={{ x: ['-200%', '350%'] }}
-      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-    />
-  </div>
+        {/* 5. Two-Line Typewriter Typography */}
+        <div className="space-y-2">
+          {/* Top Line: Welcome to */}
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-semibold text-slate-700 tracking-tight min-h-[1.3em] flex items-center justify-center">
+            <span>{line1Text}</span>
+            {activeLine === 1 && (
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 0.7, repeat: Infinity, ease: "easeInOut" }}
+                className="inline-block w-[2.5px] h-[0.9em] bg-slate-700 ml-1 rounded-full"
+              />
+            )}
+          </h2>
 
-  {/* Telemetry Metrics Row */}
-  <div className="mt-4 flex items-center justify-between w-full text-[11px] font-mono tracking-widest text-slate-600">
-    <motion.span 
-      animate={{ opacity: [0.55, 1, 0.55] }}
-      transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-      className="uppercase flex items-center gap-1.5 font-semibold"
-    >
-      <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-ping" />
-      Initializing Stream
-    </motion.span>
-    <span className="font-bold tabular-nums text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">
-      {Math.round(progress)}%
-    </span>
-  </div>
-</motion.div>
+          {/* Bottom Line: Pravaah Technologies (Gradient Brand Name) */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-display font-black tracking-tight leading-tight min-h-[1.3em] flex items-center justify-center">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D2FF] via-[#2F54EB] to-[#9B51E0]">
+              {line2Text}
+            </span>
+            {activeLine === 2 && (
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 0.7, repeat: Infinity, ease: "easeInOut" }}
+                className="inline-block w-[3px] h-[0.85em] bg-blue-600 ml-1.5 rounded-full"
+              />
+            )}
+          </h1>
+
+          {/* Signature Accent Line under Pravaah Technologies */}
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.7, delay: 1.8 }}
+            className="h-1 w-20 rounded-full bg-gradient-to-r from-cyan-400 via-blue-600 to-purple-500 mx-auto origin-center mt-3"
+          />
+        </div>
 
       </div>
     </motion.div>
