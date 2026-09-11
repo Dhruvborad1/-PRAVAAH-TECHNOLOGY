@@ -252,7 +252,7 @@ const About = () => {
             </div>
           ))}
         </div>
-
+          
         {/* Enterprise Stats Bar */}
         <div className="bg-slate-50/70 backdrop-blur-sm rounded-2xl border border-slate-200/90 p-3.5 sm:p-6 mb-14 shadow-sm">
           {/* મોબાઇલમાં 2x2 (grid-cols-2) અને ડેસ્કટોપમાં 4 (lg:grid-cols-4) */}
